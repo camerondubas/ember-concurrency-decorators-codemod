@@ -1,4 +1,4 @@
-# ember-concurrency-decorators-codemod &middot; [![License](https://img.shields.io/npm/l/ember-concurrency-decorators-codemod)](https://github.com/camerondubas/ember-concurrency-decorators-codemod/blob/0c91248a5b00f1cf6d7735b1d376ec8a78874371/LICENCE) [![CircleCI Status](https://circleci.com/gh/camerondubas/ember-cli-deploy-latest.svg?style=shield)](https://app.circleci.com/pipelines/github/camerondubas/ember-concurrency-decorators-codemod)
+# ember-concurrency-decorators-codemod &middot; [![License](https://img.shields.io/npm/l/ember-concurrency-decorators-codemod)](https://github.com/camerondubas/ember-concurrency-decorators-codemod/blob/1fb8f170312abdc408a9209ecf1e84148d574041/LICENSE) [![CircleCI Status](https://circleci.com/gh/camerondubas/ember-cli-deploy-latest.svg?style=shield)](https://app.circleci.com/pipelines/github/camerondubas/ember-concurrency-decorators-codemod)
 
 As of ember-concurrency 2.0.0, the decorators provided by `ember-concurrency-decorators`
 have been moved directly into `ember-concurrency`, removing the need for this additional package.
