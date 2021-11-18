@@ -41,5 +41,8 @@
     "hooks": {
       "after:bump": "npx auto-changelog -p"
     }
+  },
+  "jest": {
+    "modulePathIgnorePatterns": ["__tests__/.eslintrc.js"]
   }
 }
