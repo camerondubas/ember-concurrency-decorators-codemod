@@ -1,3 +1,5 @@
+const parser = require('./parser.js');
+
 module.exports = (file, api, options) => {
   const j = api.jscodeshift;
   const root = j(file.source);
@@ -34,3 +36,5 @@ module.exports = (file, api, options) => {
 
   return root.toSource({ quote: options.quote || 'single' });
 };
+
+module.exports.parser = parser;
