@@ -4,9 +4,21 @@
   "description": "Codemod to refactor away existing `ember-concurrency-decorators` imports automatically",
   "main": "refactor-imports.js",
   "license": "MIT",
+  "repository": "https://github.com/camerondubas/ember-concurrency-decorators-codemod",
+  "keywords": [
+    "ember",
+    "ember-concurrency",
+    "ember-concurrency-decorators",
+    "codemod",
+    "jscodeshift"
+  ],
+  "directories": {
+    "test": "__test__"
+  },
   "scripts": {
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "release": "release-it"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
@@ -16,6 +28,18 @@
     "eslint-plugin-jest": "^25.2.4",
     "eslint-plugin-node": "^11.1.0",
     "jest": "^27.3.1",
-    "jscodeshift": "^0.13.0"
+    "jscodeshift": "^0.13.0",
+    "release-it": "^14.11.7"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "git": {
+      "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+    },
+    "hooks": {
+      "after:bump": "npx auto-changelog -p"
+    }
   }
 }
