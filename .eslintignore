@@ -9,3 +9,4 @@
 # misc
 /coverage/
 !.*
+__testfixtures__

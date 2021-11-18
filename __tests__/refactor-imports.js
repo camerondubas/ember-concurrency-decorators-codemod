@@ -59,12 +59,3 @@ describe("refactor-import", () => {
     "Adds to bottom of import list"
   );
 });
-
-// describe('has ember-concurrency-decorators import',() => {
-//   test('a', () => {
-//     const input = ``;
-//     const ouptut = ``;
-
-//     defineInlineTest(transform, {}, input, output)
-//   });
-// })
