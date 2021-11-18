@@ -2,12 +2,19 @@
   "name": "ember-concurrency-decorators-codemod",
   "version": "0.0.1",
   "description": "Codemod to refactor away existing `ember-concurrency-decorators` imports automatically",
-  "main": "index.js",
+  "main": "refactor-imports.js",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint .",
     "test": "jest"
   },
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+  },
   "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-plugin-jest": "^25.2.4",
+    "eslint-plugin-node": "^11.1.0",
     "jest": "^27.3.1",
     "jscodeshift": "^0.13.0"
   }

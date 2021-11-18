@@ -55,7 +55,16 @@ import { dropTask, task } from 'ember-concurrency';
 ```
 
 
-## Tests
+## Testing
 ```
 yarn test
 ```
+
+## Linting
+```
+yarn lint
+```
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/camerondubas/ember-concurrency-decorators-codemod/blob/main/LICENCE).
