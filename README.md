@@ -67,4 +67,4 @@ yarn lint
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/camerondubas/ember-concurrency-decorators-codemod/blob/main/LICENCE).
+This project is licensed under the [MIT License](https://github.com/camerondubas/ember-concurrency-decorators-codemod/blob/6f0008a0e4f19e5c2bd187eb35db4a1fe62d0a74/LICENSE).
