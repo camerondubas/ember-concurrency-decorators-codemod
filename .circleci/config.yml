@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7.0
+  snyk: snyk/snyk@1.1.2
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:lts
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn test
+          name: Run tests
+      - snyk/scan
+
+workflows:
+  version: 2
+  run_test:
+    jobs:
+      - test:
+          context:
+            - "Docker Hub"
+            - "snyk"
