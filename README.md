@@ -12,7 +12,7 @@ in order for decorator imports to be available.
 ## Usage
 ```
 git clone https://github.com/camerondubas/ember-concurrency-decorators-codemod
-npx jscodeshift -t ember-concurrency-decorators-codemod/index.js path/of/files/ or/some**/*glob.js
+npx jscodeshift -t ember-concurrency-decorators-codemod/refactor-imports.js <path/*glob>.js
 ```
 
 ##### Options
@@ -54,3 +54,8 @@ import { dropTask, task } from 'ember-concurrency';
 ...
 ```
 
+
+## Tests
+```
+yarn test
+```
