@@ -11,7 +11,9 @@ in order for decorator imports to be available.
 ## Usage
 ```
 git clone https://github.com/camerondubas/ember-concurrency-decorators-codemod
-npx jscodeshift -t ember-concurrency-decorators-codemod/refactor-imports.js <path/*glob>.js
+cd ember-concurrency-decorators-codemod
+npm install
+npx jscodeshift -t refactor-imports.js <path/*glob>.js
 ```
 
 ##### Options
