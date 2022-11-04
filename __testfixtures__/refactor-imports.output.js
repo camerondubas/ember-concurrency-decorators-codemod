@@ -1,7 +1,7 @@
-import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
-import { timeout, dropTask } from 'ember-concurrency';
-import { tracked } from '@glimmer/tracking';
+import Component from "@glimmer/component";
+import { inject as service } from "@ember/service";
+import { timeout, dropTask } from "ember-concurrency";
+import { tracked } from "@glimmer/tracking";
 
 export default class DummyComponent extends Component {
   @service counter;
@@ -10,6 +10,6 @@ export default class DummyComponent extends Component {
   @dropTask
   *delayedIncrement() {
     yield timeout(1000);
-    this.counter.increment(value);
+    this.counter.increment(this.value);
   }
 }
