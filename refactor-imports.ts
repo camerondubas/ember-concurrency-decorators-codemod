@@ -1,6 +1,10 @@
-const parser = require("./parser.js");
+import type { API, FileInfo } from "jscodeshift";
 
-module.exports = (file, api, options) => {
+interface Options {
+  quote?: "single" | "double";
+}
+
+export default function tranform(file: FileInfo, api: API, options: Options) {
   const { jscodeshift } = api;
   const root = jscodeshift(file.source);
 
@@ -36,5 +40,3 @@ module.exports = (file, api, options) => {
 
   return root.toSource({ quote: options.quote || "single" });
 };
-
-module.exports.parser = parser;

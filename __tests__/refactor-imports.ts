@@ -1,8 +1,5 @@
-jest.autoMockOff();
-
-const defineTest = require("jscodeshift/dist/testUtils").defineTest;
-const defineInlineTest = require("jscodeshift/dist/testUtils").defineInlineTest;
-const transform = require("../refactor-imports");
+import { defineTest, defineInlineTest } from "jscodeshift/src/testUtils";
+import transform from "../refactor-imports";
 
 defineTest(__dirname, "refactor-imports");
 
