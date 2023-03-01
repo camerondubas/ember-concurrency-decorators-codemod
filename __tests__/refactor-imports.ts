@@ -2,8 +2,11 @@ import { defineTest, defineInlineTest } from "jscodeshift/src/testUtils";
 import transform from "../refactor-imports";
 
 defineTest(__dirname, "refactor-imports");
+defineTest(__dirname, "refactor-imports", null, "refactor-imports-typescript", {
+  parser: "ts",
+});
 
-describe("refactor-import", () => {
+describe("refactor-imports", () => {
   defineInlineTest(
     transform,
     {},
@@ -99,5 +102,51 @@ import { task, dropTask, enqueueTask } from 'ember-concurrency';
 import { action } from '@ember/object';`,
 
     "Retains import position when merging"
+  );
+  defineInlineTest(
+    transform,
+    {},
+    `
+    import type { TaskGenerator } from 'ember-concurrency';
+    import { dropTask } from 'ember-concurrency-decorators';
+    `,
+    `
+    import type { TaskGenerator } from 'ember-concurrency';
+    import { dropTask } from 'ember-concurrency';
+    `,
+
+    "Ignore type imports basic"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+    import { task } from 'ember-concurrency';
+    import type { TaskGenerator } from 'ember-concurrency';
+    import { dropTask } from 'ember-concurrency-decorators';
+    `,
+    `
+    import { task, dropTask } from 'ember-concurrency';
+    import type { TaskGenerator } from 'ember-concurrency';
+    `,
+
+    "Ignore type imports with existing import"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `
+    import type { TaskGenerator } from 'ember-concurrency';
+    import { task } from 'ember-concurrency';
+    import { dropTask, enqueueTask } from 'ember-concurrency-decorators';
+    `,
+    `
+    import type { TaskGenerator } from 'ember-concurrency';
+    import { task, dropTask, enqueueTask } from 'ember-concurrency';
+    `,
+
+    "Ignore type imports: complex case"
   );
 });

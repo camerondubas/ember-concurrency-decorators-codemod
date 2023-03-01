@@ -4,13 +4,19 @@ interface Options {
   quote?: "single" | "double";
 }
 
+const parser = "ts";
+
 export default function tranform(file: FileInfo, api: API, options: Options) {
   const { jscodeshift } = api;
-  const root = jscodeshift(file.source);
+
+  const codeshift = jscodeshift.withParser(parser);
+
+  const root = codeshift(file.source);
 
   const findImport = (name) =>
-    root.find(jscodeshift.ImportDeclaration, {
-      source: { type: "Literal", value: name },
+    root.find(codeshift.ImportDeclaration, {
+      source: { value: name },
+      importKind: "value",
     });
 
   const emberConcurrencyImport = findImport("ember-concurrency");
@@ -39,4 +45,4 @@ export default function tranform(file: FileInfo, api: API, options: Options) {
   }
 
   return root.toSource({ quote: options.quote || "single" });
-};
+}
